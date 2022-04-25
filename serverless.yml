@@ -58,12 +58,78 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+
+  # [POST] /api/user
+  post_user:
+    handler: handler.post_user
     events:
       - httpApi:
-          path: /
+          path: /api/user
+          method: post
+
+  # [POST] /api/api-token
+  post_user_token:
+    handler: handler.post_user_token
+    events:
+      - httpApi:
+          path: /api/user-token
+          method: post
+
+  # [DELETE] /api/user-token
+  delete_user_token:
+    handler: handler.delete_user_token
+    events:
+      - httpApi:
+          path: /api/user-token
+          method: delete
+
+  # [GET] /api/all-note
+  get_all_note:
+    handler: handler.get_all_note
+    events:
+      - httpApi:
+          path: /api/all-note
           method: get
+
+  # [POST] /api/all-note
+  post_all_note:
+    handler: handler.post_all_note
+    events:
+      - httpApi:
+          path: /api/all-note
+          method: post
+
+  # [GET] /api/my-note
+  get_my_note:
+    handler: handler.get_my_note
+    events:
+      - httpApi:
+          path: /api/my-note
+          method: get
+
+  # [POST] /api/my-note
+  post_my_note:
+    handler: handler.post_my_note
+    events:
+      - httpApi:
+          path: /api/my-note
+          method: post
+
+  # [PUT] /api/my-note/:nid
+  put_my_note:
+    handler: handler.put_my_note
+    events:
+      - httpApi:
+          path: /api/my-note/{nid+}
+          method: put
+
+  # [DELETE] /api/my-note/:nid
+  delete_my_note:
+    handler: handler.delete_my_note
+    events:
+      - httpApi:
+          path: /api/my-note/{nid+}
+          method: delete
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
