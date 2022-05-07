@@ -2,13 +2,16 @@ import json
 
 # 1) [POST] /api/user
 def post_user(event, context):
-    body = {
-        "error": "null"
-    }
+    body = json.loads(event["body"])
+    if ("email" not in body) or ("password" not in body):
+        return {
+            "statusCode": 401,
+            "body": json.dumps({"error": "Wrong email or password"})
+        }
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": event['body']
     }
 
     return response
@@ -21,7 +24,7 @@ def post_user_token(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": json.dumps(body),
     }
 
     return response
@@ -53,7 +56,7 @@ def get_all_note(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": event['queryStringParameters']['lang']
     }
 
     return response
@@ -124,8 +127,7 @@ def delete_my_note(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": event['pathParameters']['nid']
     }
 
     return response
-
