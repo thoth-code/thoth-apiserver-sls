@@ -1,4 +1,5 @@
 import json
+import service
 
 # 1) [POST] /api/user
 def post_user(event, context):
@@ -6,15 +7,19 @@ def post_user(event, context):
     if ("email" not in body) or ("password" not in body):
         return {
             "statusCode": 401,
-            "body": json.dumps({"error": "Wrong email or password"})
+            "body": json.dumps({
+                "error": "Wrong email or password"
+            })
         }
 
-    response = {
-        "statusCode": 200,
-        "body": event['body']
-    }
+    err_msg = service.add_user(body["email"], body["password"])
 
-    return response
+    return {
+        "statusCode": 200 if err_msg == "null" else 501,
+        "body": json.dumps({
+            "error": err_msg
+        })
+    }
 
 # 2) [POST] /api/user-token
 def post_user_token(event, context):

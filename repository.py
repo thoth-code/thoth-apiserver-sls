@@ -1,5 +1,3 @@
-import sqlalchemy
-
 # Docker MariaDB endpoint must be '127.0.0.1', not 'localhost'
 #   Ref: https://stackoverflow.com/a/23471897
 db_endpoint = "127.0.0.1"
@@ -9,17 +7,29 @@ db_database = "thoth"
 
 # Create Engine
 #   Ref: https://mariadb.com/ko/resources/blog/using-sqlalchemy-with-mariadb-connector-python-part-1/
-engine = sqlalchemy.create_engine(f"mariadb+mariadbconnector://{db_username}:{db_password}@{db_endpoint}:3306/{db_database}?charset=utf8", convert_unicode=False)
+from sqlalchemy import create_engine
+engine = create_engine(f"mariadb+mariadbconnector://{db_username}:{db_password}@{db_endpoint}:3306/{db_database}?charset=utf8", convert_unicode=False)
 
+# Create Base
+#   Ref: https://stackoverflow.com/a/48363732
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-Users = Base.classes.userData
-session = Session(engine)
+UserData = Base.classes.userData
+NoteData = Base.classes.noteData
 
-res = session.query(Users).first()
+# Create sessionmaker
+#   Ref: https://docs.sqlalchemy.org/en/14/orm/session_basics.html#using-a-sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
+Session = scoped_session(sessionmaker(engine))
 
-print(res)
+# Callables
+#   insert_user: func(email string, password string) void
+def insert_user(email: str, password: str) -> None:
+    # Reference of using with ~ as ~ expression:
+    #   https://docs.sqlalchemy.org/en/14/orm/session_basics.html#framing-out-a-begin-commit-rollback-block
+    with Session() as session, session.begin():
+        user = UserData(email=email, password=password)
+        session.add(user)
+        session.commit()
