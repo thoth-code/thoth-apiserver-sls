@@ -1,8 +1,11 @@
 .PHONY: build clean deploy init
 
+BENVS=env GOARCH=amd64 GOOS=linux
+GFLAGS=-ldflags="-s -w"
+
 build:
 	export GO111MODULE=on
-	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/create-note create-note/main.go
+	$(BENVS) go build $(GFLAGS) -o bin/createPublicNote note/services/createPublicNote/main.go
 
 clean:
 	rm -rf ./bin ./vendor go.sum

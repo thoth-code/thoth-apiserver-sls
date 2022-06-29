@@ -13,22 +13,14 @@ import (
     "github.com/aws/aws-sdk-go/aws/session"
     "github.com/aws/aws-sdk-go/service/dynamodb"
     "github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+
+    "github.com/thoth-code/thoth-apiserver-sls/note/schemas"
 )
 
 // AWS Lambda Proxy Request functionality (default behavior)
 // @see https://pkg.go.dev/github.com/aws/aws-lambda-go/events#APIGatewayProxyResponse
 type Response events.APIGatewayProxyResponse
 type JSON   map[string]interface{}
-
-type Note struct {
-    Id      string
-    Title   string
-    Code    string
-    Owner   string
-    Tags    []string
-    Refs    []string
-    Scope   uint16
-}
 
 // Handler is our lambda handler invoked by the `lambda.Start` function call
 func Handler(ctx context.Context) (Response, error) {
@@ -45,7 +37,7 @@ func Handler(ctx context.Context) (Response, error) {
     svc := dynamodb.New(sess)
 
     // Create note struct
-    note := Note{
+    note := schemas.Note{
         Id:     uuid.NewString(),
         Owner:  "testOwner",
         Title:  "testTitle",
