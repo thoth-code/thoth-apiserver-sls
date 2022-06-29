@@ -1,4 +1,4 @@
-package schemas
+package repository
 
 // AWS DDB item schema
 type Note struct {
