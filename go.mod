@@ -1,4 +1,4 @@
-module github.com/git/thoth-apiserver-sls
+module github.com/thoth-code/thoth-apiserver-sls
 
 go 1.18
 
