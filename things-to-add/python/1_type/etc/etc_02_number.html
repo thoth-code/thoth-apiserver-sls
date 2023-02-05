@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>article | Thoth</title>
+    <link rel="stylesheet" href="../../../style/font.css">
+    <link rel="stylesheet" href="../../../style/whiteboard.css">
+  </head>
+  <body>
+    <header>
+        <div id="logo"><div class="hov_box"><a href="../index.html">Thoth</a></div></div>
+        <div id="title">불변/가변/객체복사</div>
+    </header>
+    <main>
+      <article class="post">
+        <h2>파이썬 숫자의 특징</h2>
+        <ol>
+          <li>파이썬의 숫자는 <strong>임의 정밀도(Arbitary-Precision)</strong>를 가진다</li>
+          <ul>
+            <li>c나 자바는 자료형당 크기가 정해져있는 고정 정밀도(Fixed-Precision)을 가진다. 즉, 이 범위를 넘어서면 오버플로우가 발생한다</li>
+            <li>파이썬은 임의 정밀도를 가진다. 따라서 숫자의 크기에 따라 메모리 사용량이 달라진다. 따라서 <strong>오버플로우가 발생하지 않는다</strong></li>
+          </ul>
+          <li>파이썬은 <strong>숫자도 객체로 선언된다</strong></li>
+          <ul>
+            <li>c언어는 객체가 아닌 원시타입(Primitive Type)은 할당된 공간에 숫자만 저장한다. 따라서 사칙연산은 되지만 그 이상의 다양한 기능은 제공하지 않는다. 대신 빠르다는 장점이 있다</li>
+            <li>자바는 원시타입과 객체타입을 모두 지원한다. <strong>객체타입은 숫자이외에도 헤더에 다양한 정보를 갖고 있어 다양한 연산을 제공한다. 대신 원시타입보다는 용량도 크고 느리다는 단점이 있다</strong></li>
+            <li>파이썬은 <strong>숫자를 포함한 모든것이 객체로 선언된다</strong> 성능보다는 편의성을 중시하는 파이썬의 성향이 나타난다</li>
+            <li>다만, 빠른 연산을 위해 NumPy라는 파이썬 라이브러리는 c로 작성되어 원시타입과 빠른 연산속도를 이용할 수 있다</li>
+          </ul>
+        </ol>
+      </article>
+    </main>
+    <footer>
+      copyright©saltwalks2021
+    </footer>
+  </body>
+</html>

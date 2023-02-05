@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>article | Thoth</title>
+    <link rel="stylesheet" href="../../style/font.css">
+    <link rel="stylesheet" href="../../style/whiteboard.css">
+  </head>
+  <body>
+    <header>
+        <div id="logo"><div class="hov_box"><a href="../index.html">Thoth</a></div></div>
+        <div id="title">정규표현식</div>
+    </header>
+    <main>
+      <article class="post">
+        <h2>백슬래시 문자 매칭하기</h2>
+        <ol>
+          <li>파이썬은 \\를 자동으로 \로 변환한다. 따라서 메타기호가 아닌 문자로써의 \를 매칭하기 위해 정규식에 \\이렇게 써봤자 \하나로 바뀌어서 메타기호로 인식하게 된다</li>
+          <li>그렇다고 \\를 표현하기 위해 \\\\이렇게 4개를 쓸 수도 없는 일이다. 이때 raw string이라는 것을 이용한다</li>
+          <li><strong>문자열 앞에 r을 붙여주면 raw string이 된다. r"\\"를 쓰면 얘가 \ 하나로 자동변환하지 않고 그냥 냅두기 때문에 문자로써의 \를 사용할 수 있다</strong></li>
+        </ol>
+      </article>
+    </main>
+    <footer>
+      copyright©saltwalks2021
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>article | Thoth</title>
+    <link rel="stylesheet" href="../../style/font.css">
+    <link rel="stylesheet" href="../../style/whiteboard.css">
+  </head>
+  <body>
+    <header>
+        <div id="logo"><div class="hov_box"><a href="../index.html">Thoth</a></div></div>
+        <div id="title">변수</div>
+    </header>
+    <main>
+      <article class="code">
+        <h2>변수선언하기</h2>
+        <ul class="command">
+          <li>var a = 100;</li>
+        </ul>
+        <ul class="describe">
+          <li>변수선언하는 명령어는 var이다</li>
+          <li>동적으로 자료형이 간택되므로 자료형은 따로 써줄 필요 없다</li>
+        </ul>
+      </article>
+      <article class="code">
+        <h2>숫자문자열을 숫자로 자료형 바꾸기</h2>
+        <ul class="command">
+          <li>Number("500")</li>
+        </ul>
+        <ul class="describe">
+          <li>자바스크립트에서는 Number()라는 함수를 사용한다</li>
+        </ul>
+      </article>
+      <article class="code">
+        <h2>undefined 자료형</h2>
+        <ul class="command">
+          <li>var a</li>
+        </ul>
+        <ul class="describe">
+          <li>저렇게 변수를 초기화하지 않은 경우에는 변수의 자료형이 undefined로 선언된다</li>
+        </ul>
+        <ul class="caution">
+          <li>초기화하지 않은 경우에 자료형이 null이 아니라는 것에 유의할 것</li>
+        </ul>
+      </article>
+      <article class="code">
+        <h2>자료형 알아내기</h2>
+        <ul class="command">
+          <li>typeof a</li>
+        </ul>
+        <ul class="describe">
+          <li>자료형을 알아내고자 할때에는 typeof라는 명령어를 쓴다</li>
+        </ul>
+        <ul class="caution">
+          <li>뻑캠엘마냥 괄호가 아닌 띄어쓰기로 인자를 전달한다는 것에 유의할 것</li>
+        </ul>
+      </article>
+      <article class="code">
+        <h2>문자열에 html태그를 넣으면?</h2>
+        <ul class="command">
+          <li>"A&lt;br&gt;B"<br>/*는 이렇게 출력된다*/<br>A<br>B</li>
+        </ul>
+        <ul class="describe">
+          <li>문자열에 html태그를 넣어서 화면에 출력하면 raw string으로 나오는게 아니라 태그가 적용되어서 나오게 된다</li>
+        </ul>
+        <ul class="tip">
+          <li>당연히 class나 id를 통해서 css를 적용할 수 있으므로 엮어서 적극 활용하면 좋다</li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      copyright©saltwalks2021
+    </footer>
+  </body>
+</html>

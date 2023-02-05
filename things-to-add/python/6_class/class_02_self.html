@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>article | Thoth</title>
+    <link rel="stylesheet" href="../../style/font.css">
+    <link rel="stylesheet" href="../../style/whiteboard.css">
+  </head>
+  <body>
+    <header>
+        <div id="logo"><div class="hov_box"><a href="../index.html">Thoth</a></div></div>
+        <div id="title">클래스</div>
+    </header>
+    <main>
+      <article class="post">
+        <h2>메소드의 첫번째 매개변수, self</h2>
+        <ul>
+          <li>함수와는 다르게 메소드의 경우 해당 메소드를 호출하는 객체가 존재한다</li>
+          <li>파이썬에서는 <strong>메소드의 첫번째 매개변수로 해당 메소드를 호출하는 객체가 들어가게 된다</strong></li>
+          <li>근데 보통 객체 자기자신이 메소드를 호출하므로 <strong>관례적으로 객체변수 이름을 self</strong>로 해준다. 자바에서의 this와 동일한 의미이다</li>
+          <li><strong>객체를 이용해 메소드 호출시에 객체.메소드()</strong>를 하면 해당 객체가 자동으로 self에 들어가므로 객체로 메소드를 호출할때는 따로 self에 값을 넣어주지 않아도 된다</li>
+          <li>하지만 <strong>클래스로 메소드를 호출하게 되면 어떤 객체에서 호출하는지 알 수 없기 때문에 클래스.메소드(객체)</strong> 이렇게 어떤 객체에서 호출할지 명시 해줘야 한다</li>
+        </ul>
+      </article>
+    </main>
+    <footer>
+      copyright©saltwalks2021
+    </footer>
+  </body>
+</html>
